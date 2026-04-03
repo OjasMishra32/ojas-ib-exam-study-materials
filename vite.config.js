@@ -30,4 +30,52 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    target: 'es2020',
+    
+    cssCodeSplit: true,
+    sourcemap: false,
+    minify: 'terser',
+    
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info'],
+        passes: 2,
+      },
+    },
+    
+    chunkSizeWarningLimit: 500,
+    
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        
+        manualChunks(id) {
+          if (id.endsWith('.json')) {
+            const pathParts = id.split('/');
+            const filename = pathParts[pathParts.length - 1].replace('.json', '');
+            return `json-${filename}`;
+          }
+          
+          if (id.includes('node_modules')) {
+            
+            if (id.includes('pdfjs-dist')) {
+              return 'pdfjs';
+            } else {
+              return id.toString().split("node_modules/")[1].split("/")[0].toString();
+            }
+
+            
+          }
+          
+          return undefined;
+        },
+      },
+    },
+  },
+
 })
