@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import path from 'path'
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -23,6 +24,7 @@ export default defineConfig({
       autoCodeSplitting: true,
     }),
     react(),
+    visualizer({ open: true, filename: 'dist/stats.html' }),
     tailwindcss(),
   ],
   resolve: {
@@ -35,7 +37,7 @@ export default defineConfig({
     
     cssCodeSplit: true,
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
     
     terserOptions: {
       compress: {
@@ -65,13 +67,9 @@ export default defineConfig({
             
             if (id.includes('pdfjs-dist')) {
               return 'pdfjs';
-            } else {
-              return id.toString().split("node_modules/")[1].split("/")[0].toString();
             }
-
-            
           }
-          
+
           return undefined;
         },
       },
