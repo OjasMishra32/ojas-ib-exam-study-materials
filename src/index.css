@@ -48,7 +48,7 @@ body, html {
 
   /* Custom Accent Colors */
   --color-accent-primary: var(--accent-primary);
-  --color-accent-pirateib: var(--accent-pirateib);
+  --color-accent-dojo: var(--accent-dojo);
   --color-accent-primary-foreground: var(--accent-primary-foreground);
   --color-accent-fuchsia: var(--accent-fuchsia);
   --color-accent-fuchsia-foreground: var(--accent-fuchsia-foreground);
@@ -115,7 +115,7 @@ body, html {
   --accent: #f5f5f5;
   --accent-foreground: #171717;
   --accent-primary: #e1f3fe;
-  --accent-pirateib: #EA2264;
+  --accent-dojo: #EA2264;
   --accent-primary-foreground: #0284c5;
   --accent-fuchsia: #f9e6ff;
   --accent-fuchsia-foreground: #bf27d3;
@@ -237,7 +237,7 @@ body, html {
   --muted-foreground: #a3a3a3;
   --accent: #262626;
   --accent-foreground: #fafafa;
-  --accent-pirateib: #FF73A8;
+  --accent-dojo: #FF73A8;
   --accent-primary: #122731;
   --accent-primary-foreground: #3abff8;
   --accent-fuchsia: #301a32;

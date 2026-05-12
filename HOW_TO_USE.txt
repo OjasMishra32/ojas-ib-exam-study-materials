@@ -1,4 +1,4 @@
-Hey there PirateIB user! If you're reading this, you either want to selfhost PirateIB Dojo, or want to run it locally.
+Hey there Ojas's Dojo user! If you're reading this, you either want to self-host Ojas's Dojo, or want to run it locally.
 Because this is a Vite app, it's not as simple as running a single command. Also, you can either run this in dev more or in production mode.
 
 PREREQUISITES
