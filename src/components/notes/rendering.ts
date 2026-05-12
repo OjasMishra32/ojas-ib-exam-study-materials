@@ -80,7 +80,7 @@ export function normalizeLatexDelimiters(markdown: string): string {
   return markdown
     .replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, "$$\n$1\n$$")
     .replace(/\\\(\s*([\s\S]*?)\s*\\\)/g, (_match, expr: string) => `$${expr.trim()}$`)
-    // RevisionDojo source often stores display equations as a single line:
+    // Source content often stores display equations as a single line:
     // $$ ... $$
     // remark-math only treats multiline fences as block math, so convert
     // line-isolated expressions into fenced display math.

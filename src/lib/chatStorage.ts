@@ -14,8 +14,8 @@ export type StoredMessage = {
   experimental_attachments?: { name?: string; contentType?: string; url: string }[]
 }
 
-const CHATS_KEY = 'revisiondojo-chats'
-const MESSAGES_KEY_PREFIX = 'revisiondojo-chat-messages-'
+const CHATS_KEY = 'ojas-dojo-chats'
+const MESSAGES_KEY_PREFIX = 'ojas-dojo-chat-messages-'
 
 export function getChats(): StoredChat[] {
   try {

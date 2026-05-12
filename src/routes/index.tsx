@@ -18,8 +18,8 @@ function HomePage() {
           PirateIB
         </a>{' '}
         is the best place to get all your notes, questions, and resources to guide you through your IB journey. This
-        website is a RevisionDojo clone which includes all the notes, questions, etc. that RevisionDojo locks beyond a
-        paywall on their AI-generated platform. If you have any questions, suggestions, or ideas for the future of this
+        website is Ojas's Dojo, a free IB study archive with notes, questions, cheatsheets, flashcards, and more.
+        If you have any questions, suggestions, or ideas for the future of this
         website, please{' '}
         <a href="https://discord.pirateib.sh/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">
           join our Discord
@@ -37,16 +37,16 @@ function HomePage() {
 
         <br/><br/>The current roadmap goals is below:
         <ul className="list-disc list-inside">
-          <li>Scraper for <a href="https://www.revisiondojo.com/ib?view=videos" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Videos</a> - may need a PRO account</li>
-          <li>Scraper for <a href="https://www.revisiondojo.com/ib?view=learn" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Lessons</a></li>
-          <li>Scraper for <a href="https://www.revisiondojo.com/bootcamps" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Exercises</a></li>
-          <li>Scraper for <a href="https://www.revisiondojo.com/vocabulary-practice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Vocabulary</a></li>
-          <li><a href="https://oneprep.xyz/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">OnePrep</a> scraper (they relate to RevisionDojo)</li>
+          <li>Additional videos</li>
+          <li>Additional lessons</li>
+          <li>Additional exercises</li>
+          <li>Additional vocabulary practice</li>
+          <li>Better source attribution and cleanup</li>
           <li>Free AI for grading/etc.</li>
-          <li>Any algorithms for tools that RevisionDojo provides</li>
+          <li>Any algorithms for tools that Ojas's Dojo provides</li>
         </ul>
 
-        <br/>If you like designing UI, or find any problems with the UI of this website, let us know. We are trying to recreate the entire RevisionDojo experience without the cost.
+        <br/>If you like designing UI, or find any problems with the UI of this website, let us know. We are making Ojas's Dojo easier to use without the cost.
       </p>
     </div>
   )

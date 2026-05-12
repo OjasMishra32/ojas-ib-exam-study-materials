@@ -5,8 +5,6 @@ import { HiChevronDown, HiQuestionMarkCircle } from "react-icons/hi";
 import type { Element } from "hast";
 import { NOTES_REMARK_PLUGINS, NOTES_STREAMDOWN_CONTROLS, getTextFromNodeRecursive, normalizeBrokenEmphasisMarkdown, normalizeLatexDelimiters } from "@/components/notes/rendering";
 
-// ripped straight from revisiondojo
-
 function getElementChild(node: Element | undefined, tagName: string): Element | undefined {
   if (!node?.children) return undefined;
   const lower = tagName.toLowerCase();

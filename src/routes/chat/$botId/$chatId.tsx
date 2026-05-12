@@ -109,7 +109,7 @@ export const Route = createFileRoute('/chat/$botId/$chatId')({
   },
 })
 
-/** streamdown components aligned with revisiondojo: callouts (tip, note, example, etc.), code, and p as div for nesting */
+/** streamdown components for callouts (tip, note, example, etc.), code, and p as div for nesting */
 const markdownComponents = {
   tip: Tip,
   note: Note,

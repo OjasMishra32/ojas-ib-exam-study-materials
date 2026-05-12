@@ -1,6 +1,6 @@
-# RevisionDojo Archive
+# Ojas's Dojo Archive
 
-The RevisionDojo archive, hosted on https://rev-dojo-archive.pages.dev, is a one-to-one recreation of RevisionDojo with all its resources for 100% free. This includes all its questionbanks, notes, cheatsheets, and more. If you want to help out, please consider donating you RevisionDojo account (contact @notblack in the [PirateIB Discord](https://discord.pirateib.sh/).
+Ojas's Dojo is a free IB study archive with questionbanks, notes, cheatsheets, flashcards, and more.
 
 ## Running Locally
 
@@ -25,11 +25,11 @@ npm run dev
 ```
 
 ## Roadmap Goals
-If you don't know how to code a scraper, you can help us my donating a PRO account.
-- Scraper for [Videos](https://www.revisiondojo.com/ib?view=videos) - may need a PRO account
-- Scraper for [Lessons](https://www.revisiondojo.com/ib?view=learn)
-- Scraper for [Exercises](https://www.revisiondojo.com/bootcamps)
-- Scraper for [Vocabulary](https://www.revisiondojo.com/vocabulary-practice)
-- [OnePrep](https://oneprep.xyz/) scraper (they have an relationship with RevisionDojo)
+If you don't know how to code a scraper, you can help by contributing data cleanup, UI fixes, or better study materials.
+- Additional videos
+- Additional lessons
+- Additional exercises
+- Additional vocabulary practice
+- Better source attribution and cleanup
 - Free AI for grading/etc.
-- Any algorithms for tools that RevisionDojo provides
+- Any algorithms for tools that Ojas's Dojo provides

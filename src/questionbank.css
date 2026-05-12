@@ -53,7 +53,7 @@
   font-weight: 400;
 }
 
-/* Match RevisionDojo table styling: no copy/download, no outer padding/border/margin; only inner table box */
+/* Question tables: no copy/download, no outer padding/border/margin; only inner table box */
 .questionbank-page [data-streamdown="table-wrapper"] {
   margin-top: 0 !important;
   margin-bottom: 0 !important;

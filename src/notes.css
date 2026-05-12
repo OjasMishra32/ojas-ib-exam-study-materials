@@ -1,6 +1,6 @@
 /* notes specific styles */
 
-/* Images: match revisiondojo sizing – constrained width, auto height */
+/* Images: constrained width, auto height */
 .notes-content.prose img {
   max-width: 100%;
   height: auto;
@@ -306,7 +306,7 @@
   padding-left: 0.25em;
 }
 
-/* revisiondojo blockquote */
+/* Notes blockquote */
 .notes-content.prose blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;

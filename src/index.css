@@ -98,7 +98,7 @@ body, html {
   --font-manrope: "Manrope", sans-serif;
   --font-title: var(--font-manrope);
 
-  /* From references/revisiondojo_styles.css :root */
+  /* Theme tokens */
   --background: #fff;
   --foreground: #0a0a0a;
   --card: #fff;
@@ -221,7 +221,7 @@ body, html {
 }
 
 .dark {
-  /* From references/revisiondojo_styles.css .dark */
+  /* Dark theme tokens */
   --background: #0d0d0d;
   --foreground: #fafafa;
   --card: #0a0a0a;
