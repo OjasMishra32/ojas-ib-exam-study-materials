@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import path from 'path'
-import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,7 +23,6 @@ export default defineConfig({
       autoCodeSplitting: true,
     }),
     react(),
-    visualizer({ open: true, filename: 'dist/stats.html' }),
     tailwindcss(),
   ],
   resolve: {
