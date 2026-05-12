@@ -9,3 +9,9 @@ public/* filter=lfs diff=lfs merge=lfs -text
 *.html text
 package.json text
 package-lock.json text
+tsconfig.json text
+tsconfig.node.json text
+*.config.js text
+*.config.ts text
+src/**/*.json text
+packages/**/*.json text
