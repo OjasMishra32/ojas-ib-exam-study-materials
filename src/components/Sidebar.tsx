@@ -117,7 +117,7 @@ export function SidebarContent({
                     <>
                       <span className="flex min-w-0 items-center gap-2 truncate font-semibold text-sm text-foreground">
                         <CentralIcon {...centralIconPropsFilled20} name="IconImagine" className="size-5 shrink-0 text-muted-foreground" aria-hidden />
-                        <span>RevisionDojo</span>
+                        <span>Ojas's IB Dojo</span>
                       </span>
                       <HiChevronDown className="size-5 shrink-0 text-muted-foreground opacity-60 transition-opacity group-hover:opacity-100" aria-hidden />
                     </>
@@ -126,7 +126,7 @@ export function SidebarContent({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" sideOffset={8} className="z-50 w-[var(--radix-dropdown-menu-trigger-width)] p-1">
                 <DropdownMenuItem className="cursor-default rounded-xl bg-accent font-semibold text-sm text-accent-foreground focus:bg-accent" aria-current="true">
-                  RevisionDojo
+                  Ojas's IB Dojo
                 </DropdownMenuItem>
                 <DropdownMenuItem className="rounded-xl font-semibold text-sm" onSelect={() => window.location.assign("https://revisionvillage-archive.pages.dev")}>
                   RevisionVillage
