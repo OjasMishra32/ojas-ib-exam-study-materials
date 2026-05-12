@@ -49,15 +49,10 @@ function CheatsheetDetailPage() {
     }
   }, [loading, cheatsheet, id, navigate]);
 
-  const handleDownload = () => {
+  const handleOpenPdf = () => {
     if (!cheatsheet) return;
     const pdfUrl = getCheatsheetPdfUrl(cheatsheet);
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = `${cheatsheet.title.replace(/[^a-z0-9-_]/gi, "_")}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(pdfUrl, "_blank", "noopener,noreferrer");
   };
 
   if (loading) {
@@ -78,36 +73,33 @@ function CheatsheetDetailPage() {
     currentIndex >= 0 && currentIndex < allCheatsheets.length - 1
       ? allCheatsheets[currentIndex + 1]
       : null;
-  const pdfUrl = getCheatsheetPdfUrl(cheatsheet);
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col lg:flex-row">
-      {/* PDF viewer - takes remaining space */}
       <div className="flex min-h-0 flex-1 flex-col border-border lg:border-r">
         <div className="flex shrink-0 items-center justify-end gap-2 border-b border-border bg-muted/50 px-3 py-2">
           <button
             type="button"
-            onClick={handleDownload}
+            onClick={handleOpenPdf}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
-            title="Download PDF"
+            title="Open PDF"
           >
             <CentralIcon {...centralIconProps} name="IconArrowInbox" size={16} className="size-4" ariaHidden />
           </button>
         </div>
-        <div className="h-full min-h-0 flex-1 overflow-hidden bg-muted/30">
-          <object
-            key={pdfUrl}
-            data={pdfUrl}
-            type="application/pdf"
-            className="h-full w-full bg-white"
-            aria-label={`${cheatsheet.title} PDF`}
+        <div className="h-full min-h-0 flex-1 overflow-auto bg-muted/30 p-4 sm:p-6">
+          <button
+            type="button"
+            onClick={handleOpenPdf}
+            className="mx-auto block h-full min-h-[32rem] w-full max-w-4xl overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
+            title="Open PDF"
           >
-            <iframe
-              title={`${cheatsheet.title} PDF`}
-              src={pdfUrl}
-              className="h-full w-full border-0 bg-white"
+            <img
+              src={`/cheatsheets/${cheatsheet.thumbnailR2Key}`}
+              alt={`${cheatsheet.title} preview`}
+              className="h-full w-full object-contain"
             />
-          </object>
+          </button>
         </div>
       </div>
 
@@ -125,11 +117,11 @@ function CheatsheetDetailPage() {
           </h1>
           <button
             type="button"
-            onClick={handleDownload}
+            onClick={handleOpenPdf}
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground px-4 py-2 font-medium text-background ring-offset-background transition-all hover:bg-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
           >
             <CentralIcon {...centralIconProps} name="IconArrowInbox" size={24} className="size-6 opacity-60" ariaHidden />
-            Download PDF
+            Open PDF
           </button>
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-foreground mb-3">Browse cheatsheets</h3>
