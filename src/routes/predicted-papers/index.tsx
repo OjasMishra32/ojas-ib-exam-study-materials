@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { HiChevronRight } from "react-icons/hi";
 import { PdfPreview } from "@/components/predictedpapers/PdfPreview";
 import type { PredictedPaper } from "@/types/predictedpaper";

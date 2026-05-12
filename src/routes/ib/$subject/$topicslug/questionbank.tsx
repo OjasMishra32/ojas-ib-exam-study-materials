@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { createFileRoute, useParams, Link, useNavigate } from "@tanstack/react-router";
 import { HiChevronRight, HiSelector } from "react-icons/hi";
 import { PiArrowsOutSimple } from "react-icons/pi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { Streamdown, defaultRemarkPlugins } from "streamdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";

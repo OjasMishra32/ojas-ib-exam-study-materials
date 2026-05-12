@@ -2,6 +2,10 @@ dist
 dist/**
 node_modules
 node_modules/**
+public
+public/**
+packages/central
+packages/central/**
 .git
 .git/**
 .env

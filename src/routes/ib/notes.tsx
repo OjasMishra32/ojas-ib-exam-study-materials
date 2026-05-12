@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { CentralIcon } from '@central-icons-react/all'
+import { CentralIcon } from '@/components/CentralIcon'
 import { SubjectCard } from '@/components/ui/SubjectCard'
 import ibSubjects from '@/data/ib-subjects.json'
 import type { NotesIndex } from '@/types/notesIndex'

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Command as CommandPrimitive } from "cmdk"
-import CentralIcon from "@central-icons-react/all"
+import CentralIcon from "@/components/CentralIcon"
 
 import { cn } from "@/lib/utils"
 

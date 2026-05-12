@@ -4,7 +4,7 @@ import { Worker, Viewer } from "@react-pdf-viewer/core";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
 import { HiChevronLeft } from "react-icons/hi";
 import { BiMinus, BiPlus } from "react-icons/bi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { centralIconProps } from "@/lib/icon-props";
 import { cn } from "@/lib/utils";
 import type { PredictedPaper } from "@/types/predictedpaper";

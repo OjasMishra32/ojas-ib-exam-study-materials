@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { SubjectCard } from "@/components/ui/SubjectCard";
 import subjectsDataRaw from "@/data/ib-subjects.json";
 import type { Subject } from "@/types/ib";

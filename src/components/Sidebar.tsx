@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useTheme } from "next-themes";
 import { HiX, HiChevronDown } from "react-icons/hi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { cn } from "@/lib/utils";
 import { centralIconPropsFilled20, centralIconPropsOutlined20 } from "@/lib/icon-props";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";

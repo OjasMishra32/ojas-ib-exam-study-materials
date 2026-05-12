@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
-import { CentralIcon } from '@central-icons-react/all'
+import { CentralIcon } from '@/components/CentralIcon'
 import { HiPlus, HiTrash } from 'react-icons/hi'
 import { TbDotsVertical } from 'react-icons/tb'
 import { cn } from '@/lib/utils'

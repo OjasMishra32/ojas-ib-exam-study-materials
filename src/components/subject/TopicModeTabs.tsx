@@ -1,6 +1,6 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { HiOutlineViewGrid, HiOutlineVideoCamera, HiOutlineDatabase, HiOutlineBookOpen } from "react-icons/hi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { cn } from "@/lib/utils";
 import { centralIconPropsOutlined24 } from "@/lib/icon-props";
 

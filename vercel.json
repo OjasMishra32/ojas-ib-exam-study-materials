@@ -1,5 +1,75 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
+    {
+      "source": "/bots.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/bots.json"
+    },
+    {
+      "source": "/cheatsheet_info.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/cheatsheet_info.json"
+    },
+    {
+      "source": "/exemplars-index.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/exemplars-index.json"
+    },
+    {
+      "source": "/exemplars_info.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/exemplars_info.json"
+    },
+    {
+      "source": "/exemplars_lang_info.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/exemplars_lang_info.json"
+    },
+    {
+      "source": "/flashcards-index.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/flashcards-index.json"
+    },
+    {
+      "source": "/iaeetok_rubrics.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/iaeetok_rubrics.json"
+    },
+    {
+      "source": "/notes-index.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/notes-index.json"
+    },
+    {
+      "source": "/predictedpapers_info.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/predictedpapers_info.json"
+    },
+    {
+      "source": "/questionbank-index.json",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/questionbank-index.json"
+    },
+    {
+      "source": "/cheatsheets/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/cheatsheets/:path*"
+    },
+    {
+      "source": "/exemplars/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/exemplars/:path*"
+    },
+    {
+      "source": "/flashcards/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/flashcards/:path*"
+    },
+    {
+      "source": "/notes/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/notes/:path*"
+    },
+    {
+      "source": "/predictedpapers/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/predictedpapers/:path*"
+    },
+    {
+      "source": "/questionbank/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/questionbank/:path*"
+    },
+    {
+      "source": "/subjects/:path*",
+      "destination": "https://media.githubusercontent.com/media/OjasMishra32/ojas-ib-exam-study-materials/master/public/subjects/:path*"
+    },
     {
       "source": "/((?!assets/|.*\\..*).*)",
       "destination": "/index.html"

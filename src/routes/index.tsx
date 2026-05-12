@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { centralIconPropsFilled20 } from "@/lib/icon-props";
 
 export const Route = createFileRoute('/')({

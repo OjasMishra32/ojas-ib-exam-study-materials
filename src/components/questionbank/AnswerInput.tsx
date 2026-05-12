@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { TbMicrophoneFilled } from "react-icons/tb";
 import { HiLightningBolt } from "react-icons/hi";
 

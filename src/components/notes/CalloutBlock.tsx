@@ -1,6 +1,6 @@
 import { Streamdown } from "streamdown";
 import rehypeKatex from "rehype-katex";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import type { Element } from "hast";
 import { NOTES_REMARK_PLUGINS, NOTES_STREAMDOWN_CONTROLS, getMarkdownFromNodeRecursive, normalizeBrokenEmphasisMarkdown, normalizeLatexDelimiters } from "@/components/notes/rendering";
 import { parseCodeBlocksFromContent, SimpleCodeBlock, RunnableCodeBlock } from "@/components/notes/NotesCodeBlock";

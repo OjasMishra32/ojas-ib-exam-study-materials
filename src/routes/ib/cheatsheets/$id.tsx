@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { createFileRoute, Link, useParams, useNavigate } from "@tanstack/react-router";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { BiMinus, BiPlus } from "react-icons/bi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { centralIconProps } from "@/lib/icon-props";
 import type { Cheatsheet } from "@/types/cheatsheet";
 

@@ -4,13 +4,17 @@ import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import path from 'path'
 
+const isVercelBuild = process.env.VERCEL === '1' || process.env.VERCEL === 'true'
+
 // https://vite.dev/config/
 export default defineConfig({
+  publicDir: isVercelBuild ? 'vercel-public' : 'public',
   server: {
     watch: {
       ignored: ['**/scrapers/**'],
     },
     proxy: {
+
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,

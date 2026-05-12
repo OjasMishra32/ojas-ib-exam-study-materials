@@ -4,7 +4,7 @@ import { Worker, Viewer } from "@react-pdf-viewer/core";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
 import { BiMinus, BiPlus, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { HiBadgeCheck, HiCheck, HiX, HiTable, HiOutlineBookOpen } from "react-icons/hi";
-import { CentralIcon } from "@central-icons-react/all";
+import { CentralIcon } from "@/components/CentralIcon";
 import { centralIconProps, centralIconPropsOutlined24 } from "@/lib/icon-props";
 import { cn } from "@/lib/utils";
 
