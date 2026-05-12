@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link, useParams, useNavigate } from "@tanstack/react-router";
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { zoomPlugin } from "@react-pdf-viewer/zoom";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import { BiMinus, BiPlus } from "react-icons/bi";
 import { CentralIcon } from "@central-icons-react/all";
 import { centralIconProps } from "@/lib/icon-props";
 import type { Cheatsheet } from "@/types/cheatsheet";
-
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/zoom/lib/styles/index.css";
 
 export const Route = createFileRoute("/ib/cheatsheets/$id")({
   component: CheatsheetDetailPage,
 });
 
-const PDF_WORKER_URL = `https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`;
+const CHEATSHEET_BASE_URL = "https://dl.pirateib.sh/Revision%20Dojo%20Archive/cheatsheets";
+
+function getCheatsheetPdfUrl(cheatsheet: Cheatsheet) {
+  return `${CHEATSHEET_BASE_URL}/${cheatsheet.r2Key || `${cheatsheet.id}.pdf`}`;
+}
 
 function CheatsheetDetailPage() {
   const { id } = useParams({ strict: false });
@@ -23,10 +21,6 @@ function CheatsheetDetailPage() {
   const [cheatsheet, setCheatsheet] = useState<Cheatsheet | null>(null);
   const [allCheatsheets, setAllCheatsheets] = useState<Cheatsheet[]>([]);
   const [loading, setLoading] = useState(true);
-  const [pdfLoaded, setPdfLoaded] = useState(false);
-
-  const zoomPluginInstance = zoomPlugin();
-  const { CurrentScale, zoomTo } = zoomPluginInstance;
 
   useEffect(() => {
     let cancelled = false;
@@ -55,15 +49,9 @@ function CheatsheetDetailPage() {
     }
   }, [loading, cheatsheet, id, navigate]);
 
-  useEffect(() => {
-    if (pdfLoaded && cheatsheet && typeof window !== "undefined" && window.innerWidth >= 1024) {
-      zoomTo(1.5);
-    }
-  }, [pdfLoaded, cheatsheet, zoomTo]);
-
   const handleDownload = () => {
     if (!cheatsheet) return;
-    const pdfUrl = `https://dl.pirateib.sh/Revision%20Dojo%20Archive/cheatsheets/${cheatsheet.id}.pdf`;
+    const pdfUrl = getCheatsheetPdfUrl(cheatsheet);
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = `${cheatsheet.title.replace(/[^a-z0-9-_]/gi, "_")}.pdf`;
@@ -90,43 +78,13 @@ function CheatsheetDetailPage() {
     currentIndex >= 0 && currentIndex < allCheatsheets.length - 1
       ? allCheatsheets[currentIndex + 1]
       : null;
-  const pdfUrl = `https://dl.pirateib.sh/Revision%20Dojo%20Archive/cheatsheets/${cheatsheet.id}.pdf`;
+  const pdfUrl = getCheatsheetPdfUrl(cheatsheet);
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col lg:flex-row">
       {/* PDF viewer - takes remaining space */}
       <div className="flex min-h-0 flex-1 flex-col border-border lg:border-r">
-        <div className="flex shrink-0 items-center justify-between gap-2 border-b border-border bg-muted/50 px-3 py-2">
-          <div className="flex items-center gap-1">
-            <CurrentScale>
-              {(props: { scale?: number }) => {
-                const scale = props.scale ?? 1;
-                return (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => zoomTo(Math.max(0.5, scale - 0.25))}
-                      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
-                      title="Zoom out"
-                    >
-                      <BiMinus className="size-4" aria-hidden />
-                    </button>
-                    <span className="min-w-[3rem] text-center text-sm font-medium text-foreground">
-                      {Math.round(scale * 100)}%
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => zoomTo(Math.min(3, scale + 0.25))}
-                      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
-                      title="Zoom in"
-                    >
-                      <BiPlus className="size-4" aria-hidden />
-                    </button>
-                  </>
-                );
-              }}
-            </CurrentScale>
-          </div>
+        <div className="flex shrink-0 items-center justify-end gap-2 border-b border-border bg-muted/50 px-3 py-2">
           <button
             type="button"
             onClick={handleDownload}
@@ -136,14 +94,20 @@ function CheatsheetDetailPage() {
             <CentralIcon {...centralIconProps} name="IconArrowInbox" size={16} className="size-4" ariaHidden />
           </button>
         </div>
-        <div className="h-full min-h-0 flex-1 overflow-auto bg-muted/30">
-          <Worker workerUrl={PDF_WORKER_URL}>
-            <Viewer
-              fileUrl={pdfUrl}
-              plugins={[zoomPluginInstance]}
-              onDocumentLoad={() => setPdfLoaded(true)}
+        <div className="h-full min-h-0 flex-1 overflow-hidden bg-muted/30">
+          <object
+            key={pdfUrl}
+            data={pdfUrl}
+            type="application/pdf"
+            className="h-full w-full bg-white"
+            aria-label={`${cheatsheet.title} PDF`}
+          >
+            <iframe
+              title={`${cheatsheet.title} PDF`}
+              src={pdfUrl}
+              className="h-full w-full border-0 bg-white"
             />
-          </Worker>
+          </object>
         </div>
       </div>
 
