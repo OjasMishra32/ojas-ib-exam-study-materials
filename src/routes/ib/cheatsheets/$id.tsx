@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link, useParams, useNavigate } from "@tanstack/react-router";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { BiMinus, BiPlus } from "react-icons/bi";
 import { CentralIcon } from "@central-icons-react/all";
 import { centralIconProps } from "@/lib/icon-props";
 import type { Cheatsheet } from "@/types/cheatsheet";
@@ -9,18 +10,13 @@ export const Route = createFileRoute("/ib/cheatsheets/$id")({
   component: CheatsheetDetailPage,
 });
 
-const CHEATSHEET_BASE_URL = "https://dl.pirateib.sh/Revision%20Dojo%20Archive/cheatsheets";
-
-function getCheatsheetPdfUrl(cheatsheet: Cheatsheet) {
-  return `${CHEATSHEET_BASE_URL}/${cheatsheet.r2Key || `${cheatsheet.id}.pdf`}`;
-}
-
 function CheatsheetDetailPage() {
   const { id } = useParams({ strict: false });
   const navigate = useNavigate();
   const [cheatsheet, setCheatsheet] = useState<Cheatsheet | null>(null);
   const [allCheatsheets, setAllCheatsheets] = useState<Cheatsheet[]>([]);
   const [loading, setLoading] = useState(true);
+  const [previewScale, setPreviewScale] = useState(1);
 
   useEffect(() => {
     let cancelled = false;
@@ -49,10 +45,11 @@ function CheatsheetDetailPage() {
     }
   }, [loading, cheatsheet, id, navigate]);
 
-  const handleOpenPdf = () => {
+  const previewSrc = cheatsheet ? `/cheatsheets/${cheatsheet.thumbnailR2Key}` : "";
+
+  const handleOpenPreview = () => {
     if (!cheatsheet) return;
-    const pdfUrl = getCheatsheetPdfUrl(cheatsheet);
-    window.open(pdfUrl, "_blank", "noopener,noreferrer");
+    window.open(previewSrc, "_blank", "noopener,noreferrer");
   };
 
   if (loading) {
@@ -77,29 +74,46 @@ function CheatsheetDetailPage() {
   return (
     <div className="flex h-full min-h-0 w-full flex-col lg:flex-row">
       <div className="flex min-h-0 flex-1 flex-col border-border lg:border-r">
-        <div className="flex shrink-0 items-center justify-end gap-2 border-b border-border bg-muted/50 px-3 py-2">
+        <div className="flex shrink-0 items-center justify-between gap-2 border-b border-border bg-muted/50 px-3 py-2">
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => setPreviewScale((scale) => Math.max(0.75, scale - 0.25))}
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
+              title="Zoom out"
+            >
+              <BiMinus className="size-4" aria-hidden />
+            </button>
+            <span className="min-w-[3rem] text-center text-sm font-medium text-foreground">
+              {Math.round(previewScale * 100)}%
+            </span>
+            <button
+              type="button"
+              onClick={() => setPreviewScale((scale) => Math.min(2.5, scale + 0.25))}
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
+              title="Zoom in"
+            >
+              <BiPlus className="size-4" aria-hidden />
+            </button>
+          </div>
           <button
             type="button"
-            onClick={handleOpenPdf}
+            onClick={handleOpenPreview}
             className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
-            title="Open PDF"
+            title="Open preview"
           >
             <CentralIcon {...centralIconProps} name="IconArrowInbox" size={16} className="size-4" ariaHidden />
           </button>
         </div>
         <div className="h-full min-h-0 flex-1 overflow-auto bg-muted/30 p-4 sm:p-6">
-          <button
-            type="button"
-            onClick={handleOpenPdf}
-            className="mx-auto block h-full min-h-[32rem] w-full max-w-4xl overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
-            title="Open PDF"
-          >
+          <div className="mx-auto w-fit rounded-lg border border-border bg-background p-3 shadow-sm">
             <img
-              src={`/cheatsheets/${cheatsheet.thumbnailR2Key}`}
+              src={previewSrc}
               alt={`${cheatsheet.title} preview`}
-              className="h-full w-full object-contain"
+              className="h-auto max-w-none select-none"
+              style={{ width: `${827 * previewScale}px` }}
             />
-          </button>
+          </div>
         </div>
       </div>
 
@@ -117,11 +131,11 @@ function CheatsheetDetailPage() {
           </h1>
           <button
             type="button"
-            onClick={handleOpenPdf}
+            onClick={handleOpenPreview}
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground px-4 py-2 font-medium text-background ring-offset-background transition-all hover:bg-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
           >
             <CentralIcon {...centralIconProps} name="IconArrowInbox" size={24} className="size-6 opacity-60" ariaHidden />
-            Open PDF
+            Open Preview
           </button>
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-foreground mb-3">Browse cheatsheets</h3>
